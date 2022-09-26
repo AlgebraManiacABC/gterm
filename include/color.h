@@ -1,0 +1,55 @@
+#define CSI "\x1b["
+
+#define TEXT_BLACK CSI"30m"
+#define BACK_BLACK CSI"40m"
+#define TEXT_ADMIN CSI"31m"
+#define BACK_ADMIN CSI"41m"
+#define TEXT_GREEN CSI"32m"
+#define BACK_GREEN CSI"42m"
+#define TEXT_PUKE CSI"33m"
+#define BACK_PUKE CSI"43m"
+#define TEXT_BLUE CSI"34m"
+#define BACK_BLUE CSI"44m"
+#define TEXT_MAGENTA CSI"35m"
+#define BACK_MAGENTA CSI"45m"
+#define TEXT_CYAN CSI"36m"
+#define BACK_CYAN CSI"46m"
+#define TEXT_CLOUD CSI"37m"
+#define BACK_CLOUD CSI"47m"
+#define TEXT_GRAY CSI"90m"
+#define BACK_GRAY CSI"100m"
+#define TEXT_RED CSI"91m"
+#define BACK_RED CSI"101m"
+#define TEXT_LIME CSI"92m"
+#define BACK_LIME CSI"102m"
+#define TEXT_YELLOW CSI"93m"
+#define BACK_YELLOW CSI"103m"
+#define TEXT_SKY CSI"94m"
+#define BACK_SKY CSI"104m"
+#define TEXT_PINK CSI"95m"
+#define BACK_PINK CSI"105m"
+#define TEXT_AQUA CSI"96m"
+#define BACK_AQUA CSI"106m"
+#define TEXT_WHITE CSI"97m"
+#define BACK_WHITE CSI"107m"
+#define RESET CSI"0m"
+
+#define BOLD CSI"1m"
+#define DIM CSI"2m"
+#define ITALIC CSI"3m"
+#define UNDER CSI"4m"
+#define BLINK_SLOW CSI"5m"
+#define BLINK_FAST CSI"6m"
+#define INVERT CSI"7m"
+#define STRIKE CSI"9m"
+
+//256 colors
+//ESC[ 38:5:⟨n⟩ m Select foreground color
+//ESC[ 48:5:⟨n⟩ m Select background color
+
+//"true color"
+//ESC[ 38;2;⟨r⟩;⟨g⟩;⟨b⟩ m Select RGB foreground color
+//ESC[ 48;2;⟨r⟩;⟨g⟩;⟨b⟩ m Select RGB background color
+
+#define TEXT_BROWN CSI"38;5;130m"
+#define TEXT_ORANGE CSI"38;5;202m"
