@@ -47,6 +47,19 @@ void setTerm(Uint32 set_flags)
 		write(STDOUT_FILENO, OG_BUFF, sizeof(OG_BUFF));
 	}
 
+	if((set_flags & TERM_CURSOR_OFF) && !(set_flags & TERM_CURSOR_ON))
+	{
+		//	Prints the ansi code to hide the cursor.
+		//	Also prints the null terminator, if that matters
+		write(STDOUT_FILENO, CURSOR_OFF, sizeof(CURSOR_OFF));
+	}
+	else if((set_flags & TERM_CURSOR_ON) && !(set_flags & TERM_CURSOR_OFF))
+	{
+		//	Prints the ansi code to show the cursor.
+		//	Also prints the null terminator, if that matters
+		write(STDOUT_FILENO, CURSOR_ON, sizeof(CURSOR_ON));
+	}
+
 	if(set_flags & TERM_CLEAR)
 	{
 		//	Prints the ansi code to clear the terminal.

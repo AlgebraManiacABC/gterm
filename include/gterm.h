@@ -39,6 +39,10 @@
 #define ALT_BUFF "\x1b[?1049h"
 //	Returns the terminal to the original buffer when printed
 #define OG_BUFF  "\x1b[?1049l"
+//	Hides the cursor when printed
+#define CURSOR_OFF "\x1b[?25l"
+//	Shows the cursor when printed
+#define CURSOR_ON "\x1b[?25h"
 
 typedef unsigned int Uint32;
 
@@ -62,6 +66,8 @@ int kbhit();
  * - TERM_ECHO_OFF: input will not be echoed (not compatible with TERM_ECHO_ON)
  * - TERM_ALT_BUFFER: sets the terminal to the alternate buffer (not compatible with TERM_OG_BUFFER)
  * - TERM_OG_BUFFER: returns to the original buffer (not compatible with TERM_ALT_BUFFER)
+ * - TERM_CURSOR_OFF: hides the cursor (not compatible with TERM_CURSOR_ON)
+ * - TERM_CURSOR_ON: shows the cursor (not compatible with TERM_CURSOR_OFF)
  * - TERM_CLEAR: clears the screen
  */
 void setTerm(Uint32 set_flags);
