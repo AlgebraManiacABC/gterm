@@ -38,33 +38,33 @@ void setTerm(Uint32 set_flags)
 	{
 		//	Prints the ansi code to switch to the alternate buffer.
 		//	Also prints the null terminator, if that matters
-		write(STDOUT_FILENO, ALT_BUFF, sizeof(ALT_BUFF));
+		fwrite(ALT_BUFF,sizeof(char),sizeof(ALT_BUFF)-1,stdout);
 	}
 	else if((set_flags & TERM_OG_BUFFER) && !(set_flags & TERM_ALT_BUFFER))
 	{
 		//	Prints the ansi code to return to the main buffer.
 		//	Also prints the null terminator, if that matters
-		write(STDOUT_FILENO, OG_BUFF, sizeof(OG_BUFF));
+		fwrite(OG_BUFF,sizeof(char),sizeof(OG_BUFF)-1,stdout);
 	}
 
 	if((set_flags & TERM_CURSOR_OFF) && !(set_flags & TERM_CURSOR_ON))
 	{
 		//	Prints the ansi code to hide the cursor.
 		//	Also prints the null terminator, if that matters
-		write(STDOUT_FILENO, CURSOR_OFF, sizeof(CURSOR_OFF));
+		fwrite(CURSOR_OFF,sizeof(char),sizeof(CURSOR_OFF)-1,stdout);
 	}
 	else if((set_flags & TERM_CURSOR_ON) && !(set_flags & TERM_CURSOR_OFF))
 	{
 		//	Prints the ansi code to show the cursor.
 		//	Also prints the null terminator, if that matters
-		write(STDOUT_FILENO, CURSOR_ON, sizeof(CURSOR_ON));
+		fwrite(CURSOR_ON,sizeof(char),sizeof(CURSOR_ON)-1,stdout);
 	}
 
 	if(set_flags & TERM_CLEAR)
 	{
 		//	Prints the ansi code to clear the terminal.
 		//	Also prints the null terminator, if that matters
-		write(STDOUT_FILENO, CLR_SCRN, sizeof(CLR_SCRN));
+		fwrite(CLR_SCRN,sizeof(char),sizeof(CLR_SCRN)-1,stdout);
 	}
 
 	tcsetattr(STDIN_FILENO, TCSANOW, &term);
